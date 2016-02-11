@@ -1,13 +1,11 @@
 port = process.argv[2];
-console.log(port);
+var port = (process.argv[2] ? Number(process.argv[2]) : 3000);
 var net = require('net');
-console.log("net",net);
-var server= net.createServer(respond);
+var server = net.createServer(respond);
 
-function respond(socket){
-	d = new Date();
-	socket.end(d.toString());
+function respond(socket) {
+    d = new Date();
+    socket.end(d.toString());
 }
-//TODO check for valie port ya bum
 console.log("Listening on port ", port);
 server.listen(port);
